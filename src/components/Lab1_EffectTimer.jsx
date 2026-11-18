@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 // LAB 1 (Slide 07): useEffect Timer
+// 
 export default function Lab1EffectTimer() {
   const [count, setCount] = useState(0);
   console.log('[LAB 1] rendered');
