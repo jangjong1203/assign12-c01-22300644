@@ -10,7 +10,7 @@ export default function Lab2TimerControl() {
     // TODO 2: running이 true면 setInterval로 1초마다 count 증가
     const id=setInterval(()=>{
       if(!running){
-
+        return;
       }
       else{
         setCount(prev=>prev+1);
