@@ -1,6 +1,14 @@
-    
+Project Information
 
-    Project Structure: App.jsx와 주요 Lab 컴포넌트의 역할
+
+
+Installation
+
+    npm install
+    npm run dev 
+    실행후 나오는 주소로 접속
+
+Source Code Exploration
 
     App.jsx: 화면에 각 lab들이 렌더링 될수있게 해줍니다.
     lab1: 컴퍼넌트가 화면에 마운트 되면 자동을 카운트가 시작되고 언마운트시 정리됩니다.
@@ -20,38 +28,71 @@
     useRef는 값이 바껴도 화면의 리레더링 되지않습니다. State 때문에 화면이 리레더링되더라도
     값은 날라가지않고 저장이 되며 화면에 출력은 필요하지는 않지만 필요한 값들을 저장할때 사용합니다.
 
-    Code Analysis: useEffect와 useRef 관련 주요 코드 각 1개(5~15줄)를 선택하여 동작 원리 설명
-    
-    
+    Code Analysis:
+
+    lab2:
+
+    useEffect(() => {
+    const id=setInterval(()=>{
+
+      if(!running)
+        return;
+        setCount(prev=>prev+1);
+    },1000);
+
+    return()=>clearInterval(id);
+    }, [running]);
+
+    !running:현재 실행상태가 아니면 종료
+    아니면 setInterval와setCount로 1초마다 1식 count가 증가
+    return()=>: 해당 탭이 꺼질시 clearInterval로 타이머를 정리한다.
+    [running]:Dependency Array로 running의 상태가 변경 될때마다 실행이 된다.
+
+
+Lab Implementation: 4개 Lab 구현 내용 및 실행 결과
 
 
 
-useEffect의 Dependency Array가 필요한 이유는?
+Lab Comparison: STEP 3의 비교 분석 질문 4개에 대한 답변
 
-    Dependency Array가 없으면 켜질때 마다 매번 새로 실행이 되버려서 중복으로 작동을 하기 때문에
-    자신이 원하는 시점에만 실행할수있게 필요합니다.
+    useEffect의 Dependency Array가 필요한 이유는?
 
-Cleanup을 사용하지 않으면 어떤 문제가 발생할 수 있는가?
+        Dependency Array가 없으면 켜질때 마다 매번 새로 실행이 되버려서 중복으로 작동을 하기 때문에
+        자신이 원하는 시점에만 실행할수있게 필요합니다.
 
-    이전에 실행된 작업들이 사라지지 않아서 메모리 누수가 발생해서 오류가 날수도 있습니다.
-    
-useState와 useRef의 가장 중요한 차이는?
+    Cleanup을 사용하지 않으면 어떤 문제가 발생할 수 있는가?
 
-    useState는 값이 변경되면 리렌더링 되면 하면에 바로 반영이 되지만
-    useRef는 값이 변경되더라도 화면이 리레더링 하지않습니다.
+        이전에 실행된 작업들이 사라지지 않아서 메모리 누수가 발생해서 오류가 날수도 있습니다.
+        
+    useState와 useRef의 가장 중요한 차이는?
 
-LAB 2와 LAB 4의 Timer 관리 방식은 어떻게 다른가?
+        useState는 값이 변경되면 리렌더링 되면 하면에 바로 반영이 되지만
+        useRef는 값이 변경되더라도 화면이 리레더링 하지않습니다.
 
-    2는 State를 변경시키고 그 변경을 감지해 멈추고 시작하지만,
-    4는 함수를 제작해 클릭시 해당 함수가 작동해서 타이머를 멈추고 시작합니다.
+    LAB 2와 LAB 4의 Timer 관리 방식은 어떻게 다른가?
+
+        2는 State를 변경시키고 그 변경을 감지해 멈추고 시작하지만,
+        4는 함수를 제작해 클릭시 해당 함수가 작동해서 타이머를 멈추고 시작합니다.
+
+Customizing: 수정 내용 및 파일명
+
+    App.jsx: 상단의 제목을 변경
+    App.css: 화면의 배경색과, 카운트의 숫자 색을 변경
+
+    Lab1_EffectTimer.jsx: 초를 60으로 나눠서 분과 초로 나누는 함수를 추가해서 출력할때 사용해서 분 초로 출력 하게 변경.
 
 
+Deployment: 실제 접근 가능한 Vercel URL
 
 
+Weekly Review:
 
-## 이해도 확인 질문
-1. `setCount(prev => prev + 1)`은 왜 유용한가?
-2. `useEffect(fn, [])`과 `useEffect(fn)`은 어떻게 다른가?
-3. Cleanup은 언제 실행되는가? 개발 환경 StrictMode 영향은?
-4. `useState`와 `useRef`의 값 변경 시 렌더링 차이는?
-5. LAB 2와 LAB 4에서 Timer를 관리하는 방식의 차이는?
+새롭게 배운 내용 3가지
+
+
+어려웠던 점과 해결 방법
+
+
+AI 활용 내용 및 느낀 점
+
+
