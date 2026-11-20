@@ -1,6 +1,6 @@
 Project Information
 
-
+     React기반의 useEffect, useRef 실습을 위한 4종류의 타이머를 구현한 프로젝트
 
 Installation
 
@@ -45,13 +45,19 @@ Source Code Exploration
 
     !running:현재 실행상태가 아니면 종료
     아니면 setInterval와setCount로 1초마다 1식 count가 증가
-    return()=>: 해당 탭이 꺼질시 clearInterval로 타이머를 정리한다.
-    [running]:Dependency Array로 running의 상태가 변경 될때마다 실행이 된다.
+    return()=>: 해당 탭이 꺼질시 clearInterval로 타이머를 정리합니다.
+    [running]:Dependency Array로 running의 상태가 변경 될때마다 실행이 됩니다.
 
 
 Lab Implementation: 4개 Lab 구현 내용 및 실행 결과
 
+    LAB 1: useEffect와 setInterval로 1초마다 count가 증가하도록 구현했고,Dependency Array 와 Cleanup을 적용했습니다.
 
+    LAB 2: running 상태를 Dependency Array에 넣어 Start,Stop,Reset 버튼으로 타이머를 제어하고 중복 실행을 막았습니다.
+
+    LAB 3: inputRef에 입력창을 넣어 Focus 버튼 클릭 시 입력창으로 이동, Clear 버튼 클릭 시 입력창 초기화 후 입력창으로 이동을 구현했습니다.
+
+    LAB 4: timerRef.current에 Timer ID를 넣어서 start,stop,reset 함수로 타이머를 제어하고, Cleanup을 적용했습니다.
 
 Lab Comparison: STEP 3의 비교 분석 질문 4개에 대한 답변
 
@@ -82,17 +88,26 @@ Customizing: 수정 내용 및 파일명
     Lab1_EffectTimer.jsx: 초를 60으로 나눠서 분과 초로 나누는 함수를 추가해서 출력할때 사용해서 분 초로 출력 하게 변경.
 
 
-Deployment: 실제 접근 가능한 Vercel URL
+Deployment: https://assign12-c01-22300644.vercel.app/
 
 
 Weekly Review:
 
 새롭게 배운 내용 3가지
 
+    useffect의 3가지 요소 들에 대해 배우고 각 요소들을 어떤기능을 하는지 배웠습니다.
+    useRef에 대해 배우고 이용해서 리렌더링없이 필요한 값들을 유지하는 법을 배웠습니다.
+    count+1이 아니라 prev => prev + 1를 이용해서 최신값을 이용해 값을 증가시키는 법을 배웠습니다.
+
 
 어려웠던 점과 해결 방법
 
+    이번 과제는 관련 pdf내용에 상세히잘 나와있어 특별히 어려운 내용없이 공부를 한후 강의를 들으니 쉽게 할수 있었던것 같습니다.
 
 AI 활용 내용 및 느낀 점
+
+    AI를 pdf 내용 요약 및 공부를 위해 사용했습니다.
+    이번에는 생각 보다 내용이 쉬워서 수월하게 과제를 진행했던 것 같습니다. 이번 과제를 진행하면 useState에 대한 이해도 조금는 것 같아서
+    좋았습니다.
 
 
