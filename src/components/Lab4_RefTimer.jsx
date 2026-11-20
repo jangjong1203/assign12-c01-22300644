@@ -22,7 +22,7 @@ export default function Lab4RefTimer() {
 
   const stop = () => {
     // TODO 5: clearInterval로 타이머 중지
-    timerRef.current=clearInterval(timerRef.current);
+    clearInterval(timerRef.current);
     // TODO 6: timerRef.current를 null로, running은 false로 변경
     timerRef.current=null;
     setRunning(false);
